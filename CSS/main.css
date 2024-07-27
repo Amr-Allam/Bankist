@@ -1,0 +1,401 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --main-transition: 0.5s;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f3f3f3;
+  color: #444;
+  padding: 20px;
+  position: relative;
+  height: 100dvh;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  gap: 5px;
+  position: relative;
+}
+.welcome {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+.logo {
+  width: 52.5px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  position: relative;
+  gap: 10px;
+}
+.login-error {
+  position: absolute;
+  width: calc(100% - 26px);
+  padding: 5px 3px;
+  text-align: center;
+  left: 0;
+  bottom: -35px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 5px;
+  opacity: 0;
+  transition: all var(--main-transition);
+}
+.login-error i {
+  margin-right: 5px;
+  color: red;
+}
+
+nav input {
+  width: 65%;
+  height: 35px;
+  text-align: center;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  transition: all var(--main-transition);
+}
+nav input::placeholder {
+  color: #75758b80;
+  font-weight: bold;
+  transition: all var(--main-transition);
+}
+nav input:focus {
+  box-shadow: 0px 0px 1px black;
+}
+nav input:focus::placeholder {
+  opacity: 0;
+}
+nav .logout-button {
+  background-color: black;
+  color: white;
+  height: 35px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  transition: opacity var(--main-transition);
+  display: none;
+}
+nav .logout-button:hover {
+  opacity: 0.8;
+}
+
+.test-accs {
+  margin: 65px auto 0;
+  max-width: 1200px;
+  transition: opacity var(--main-transition);
+}
+.accs-container {
+  margin: 25px auto;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  gap: 20px;
+}
+.test-accs h2 {
+  text-align: center;
+}
+.test-accs .acc {
+  padding: 15px 30px;
+  background-color: white;
+  border-radius: 15px;
+}
+.acc p:first-child {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+.acc p:not(:first-child) {
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.app {
+  margin: 40px auto 0;
+  max-width: 1000px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, 1fr) auto;
+  gap: 20px;
+  transition: opacity var(--main-transition);
+  opacity: 0;
+  position: absolute;
+  top: -3000px;
+}
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  grid-column: 1 / span 2;
+}
+.balance .label {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.balance .date {
+  font-size: 15px;
+  color: #888;
+}
+.balance .value {
+  font-size: 45px;
+}
+
+.movements {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: scroll;
+  grid-row: 2 / span 3;
+}
+.movement-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+}
+.movement-row .type-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.movement-row .type {
+  color: white;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.movement-row .type-deposit {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+.movement-row .type-withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+.movement-row .date {
+  font-size: 15px;
+  color: #888;
+}
+.movement-row .value {
+  font-size: 20px;
+}
+
+.summary {
+  grid-row: 5 / 6;
+  font-size: 13px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.summary div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.summary span {
+  font-size: 22px;
+  color: #66c873;
+}
+.summary .summary-withdrawals {
+  color: #f5465d;
+}
+.summary button {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+}
+
+.operation {
+  color: #333;
+  padding: 30px 40px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.operation h2 {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+.operation form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 0.5fr;
+  justify-items: center;
+  gap: 5px 10px;
+  width: 100%;
+}
+.operation input {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #ffffff66;
+  transition: all var(--main-transition);
+}
+.operation input:focus {
+  background-color: #ffffff99;
+}
+.loan input {
+  width: 100%;
+}
+.operation label {
+  font-size: 13px;
+  text-align: center;
+}
+.operation button {
+  width: 45px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.transfer {
+  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+.loan {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+.loan input {
+  grid-column: 1 / span 2;
+}
+.loan label {
+  grid-column: 1 / span 2;
+}
+.close {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.logout-timer {
+  text-align: center;
+  font-size: 15px;
+}
+.logout-timer span {
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .login {
+    flex-direction: column;
+    gap: 5px;
+    transition: opacity var(--main-transition);
+  }
+  .login-error {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  nav input {
+    margin: 0;
+  }
+  .movement-row .type-date {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .operation {
+    padding: 20px 15px;
+  }
+  .operation h2 {
+    text-align: center;
+  }
+  .operation form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .operation button {
+    grid-row: 3 / 4;
+    grid-column: 1 / span 2;
+  }
+  .loan form {
+    grid-template-columns: 1fr;
+    gap: 5px 0px;
+  }
+  .loan button {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .welcome {
+    font-size: 17px;
+  }
+  .login {
+    max-width: 190px;
+  }
+  .login-error {
+    bottom: -45px;
+  }
+  nav .logout-button {
+    padding: 5px 15px;
+  }
+  .movement-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .movement-row .value {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .operation:not(.loan) form {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px 0;
+  }
+  .operation button {
+    grid-row: 5 / 6;
+  }
+  .operation:not(.loan) input:last-of-type {
+    grid-row: 3 / 4;
+  }
+  .operation:not(.loan) label:first-of-type {
+    grid-row: 2 / 3;
+  }
+  .operation:not(.loan) label:last-of-type {
+    grid-row: 4 / 5;
+  }
+}
+
+@media (max-width: 344px) {
+  .login-error {
+    bottom: -60px;
+  }
+}

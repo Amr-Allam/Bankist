@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="Images/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <link rel="stylesheet" href="CSS/main.css" />
+    <title>Bankist</title>
+  </head>
+  <body>
+    <nav>
+      <p class="welcome">Log in to get started</p>
+      <img src="Images/logo.png" alt="Logo" class="logo" />
+      <form class="login">
+        <input type="text" class="user" placeholder="User" />
+        <input type="password" class="pin" placeholder="PIN" />
+        <button class="login-button">
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </button>
+        <div class="login-error">
+          <i class="fa-solid fa-circle-exclamation"></i> Wrong Username or PIN!
+        </div>
+      </form>
+      <button class="logout-button">Logout</button>
+    </nav>
+    <div class="test-accs">
+      <h2>Accounts for testing</h2>
+      <div class="accs-container"></div>
+    </div>
+    <main class="app">
+      <div class="balance">
+        <div>
+          <p class="label">Current balance</p>
+          <p class="date">As of 05/03/2037</p>
+        </div>
+        <p class="value">0€</p>
+      </div>
+      <div class="movements"></div>
+      <div class="summary">
+        <div>
+          <p>IN <span class="summary-deposits">0€</span></p>
+          <p>OUT <span class="summary-withdrawals">0€</span></p>
+          <p>INTEREST <span class="summary-interest">0€</span></p>
+        </div>
+        <button><i class="fa-solid fa-arrow-down-long"></i>Sort</button>
+      </div>
+      <div class="operation transfer">
+        <h2>Transfer Money</h2>
+        <form>
+          <input type="text" class="transfer-user" />
+          <input type="number" class="transfer-amount" />
+          <button class="transfer-button">
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+          <label>Transfer to</label>
+          <label>Amount</label>
+        </form>
+      </div>
+      <div class="operation loan">
+        <h2>Request Loan</h2>
+        <form>
+          <input type="number" class="loan-amount" />
+          <button class="loan-button">
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+          <label>Amount</label>
+        </form>
+      </div>
+      <div class="operation close">
+        <h2>Close Account</h2>
+        <form>
+          <input type="text" class="close-user" />
+          <input type="password" class="close-pin" />
+          <button class="close-button">
+            <i class="fa-solid fa-arrow-right-long"></i>
+          </button>
+          <label>Confirm User</label>
+          <label>Confirm PIN</label>
+        </form>
+      </div>
+      <p class="logout-timer">You will be logged out in <span>5:00</span></p>
+    </main>
+    <script src="JS/script.js"></script>
+  </body>
+</html>
