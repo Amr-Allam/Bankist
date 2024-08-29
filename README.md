@@ -1,2 +1,2 @@
 # Bankist
-A simple banking website
+A simple fictional banking web app.
